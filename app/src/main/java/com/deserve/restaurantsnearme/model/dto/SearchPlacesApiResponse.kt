@@ -5,5 +5,15 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchPlacesApiResponse(
     @SerializedName("results")
-    val results : List<Restaurant>
+    val results: List<Restaurant>
+)
+
+data class PlacePhotoResponse(
+
+    @SerializedName("prefix")
+    val prefix: String = "",
+
+    @SerializedName("suffix")
+    val suffix: String = ""
+
 )

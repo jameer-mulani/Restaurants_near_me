@@ -16,7 +16,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "FSQ_APIKEY", "\"fsq3RUwos9ur2SANTiRMKazPvxCPygJw1Q3GvQ2tfjJv+/M=\"")
+        //uncomment below line and enter your FourSquare places api key
+        //e.g buildConfigField("String", "FSQ_APIKEY", "\"fsq3RUwos9urvQ2tfjJv+/M=\"")
+        //buildConfigField("String", "FSQ_APIKEY", "<YOUR API KEY>")
+
     }
 
     buildTypes {
@@ -54,7 +57,12 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
 
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
+
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

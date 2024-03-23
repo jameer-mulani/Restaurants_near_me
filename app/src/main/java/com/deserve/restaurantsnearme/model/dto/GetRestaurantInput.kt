@@ -1,4 +1,5 @@
 package com.deserve.restaurantsnearme.model.dto
 
-class GetRestaurantInput {
-}
+data class GetRestaurantInput(
+    val location: UserLocation
+)

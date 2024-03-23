@@ -19,7 +19,11 @@ data class Restaurant(
     val openStatus: String,
 
     @SerializedName("location")
-    val location: RestaurantLocation
+    val location: RestaurantLocation,
+
+    @SerializedName("geocodes")
+    val geoCodes: RestaurantGeoCodes
+
 ) : Parcelable
 
 @Parcelize
@@ -28,7 +32,15 @@ data class RestaurantLocation(
     val formattedAddress: String? = "NA"
 ) : Parcelable
 
+
+@Parcelize
 data class RestaurantGeoCodes(
-    val latitude: Double = 0.0,
-    val longitude: Double = 0.0
-)
+    @SerializedName("main")
+    val restaurantGeoCodeMain: RestaurantGeoCodeMain
+): Parcelable
+
+@Parcelize
+data class RestaurantGeoCodeMain(
+    val latitude : Double,
+    val longitude : Double
+) : Parcelable
