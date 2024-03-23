@@ -33,7 +33,7 @@
             android:layout_height="@dimen/image_thumb_size_large"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/restaurant_thumbnail"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
