@@ -9,22 +9,16 @@ import com.deserve.restaurantsnearme.model.entity.Restaurant
 
 class RemoteApiRestaurantRepository(private val api: ApiSpec) : RestaurantRepository {
     override suspend fun fetchRestaurant(input: GetRestaurantInput): Resource<List<Restaurant>> {
-        val searchPlaces = api.searchPlaces(location = "47.606,-122.349358")
+        val searchPlaces = api.searchPlaces(location = "${input.location.latitude},${input.location.longitude}")
         return if (searchPlaces.isSuccessful) {
             Log.d("repository", "fetchRestaurant: ${searchPlaces.body()}")
             Resource.success(searchPlaces.body()?.results ?: emptyList())
         } else {
-            Resource.failed(
-                searchPlaces.errorBody()?.toString() ?: "Failed to fetch restaurants from api"
-            )
+            Resource.failed(searchPlaces.errorBody()?.toString() ?: "Failed to fetch restaurants from api")
         }
     }
 
-    override suspend fun fetchRestaurantPhoto(
-        restaurantId: String,
-        width: Int,
-        height: Int
-    ): Resource<String> {
+    override suspend fun fetchRestaurantPhoto(restaurantId: String, width : Int,height : Int): Resource<String> {
         val photoResponse = api.getPhotos(id = restaurantId)
         return when {
             photoResponse.isSuccessful -> {
@@ -40,7 +34,6 @@ class RemoteApiRestaurantRepository(private val api: ApiSpec) : RestaurantReposi
                     Resource.success("")
                 }
             }
-
             else -> {
                 Resource.failed(photoResponse.errorBody()?.toString() ?: "")
             }
