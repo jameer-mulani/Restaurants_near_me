@@ -30,3 +30,10 @@ Simple MVVM Clean architecture based application shows near by restaurants using
 1. Download or check out repo.
 2. Enter your FourSquare places api key in ```app/build.gradle``` under ```defaultConfig{}```.
 3. Run app on device or emulator.
+
+## What could be done better (for future):
+1. Integration of navcomponents for in app navigation.
+2. Better use of ```Fragments``` to make ui more reusable and support various form factors.
+3. Increased unit test code coverage.
+4. Better image caching mechanism or integration of image loading libraray recommeded by google e.g. Glide, coil etc.
+5. Enhanced ui and motion animation.
