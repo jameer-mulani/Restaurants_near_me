@@ -37,3 +37,5 @@ Simple MVVM Clean architecture based application shows near by restaurants using
 3. Increased unit test code coverage.
 4. Better image caching mechanism or integration of image loading libraray recommeded by google e.g. Glide, coil etc.
 5. Enhanced ui and motion animation.
+6. Integration of splash screen for better ux.
+7. Support for restaruant image gallery on restaurant details page.
